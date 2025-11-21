@@ -1,0 +1,5 @@
+// disable systemd-resolved
+sudo systemctl disable --now systemd-resolved
+sudo rm /etc/resolv.conf
+sudo ln -s /var/run/NetworkManager/resolv.conf /etc/resolv.conf
+sudo systemctl restart NetworkManager

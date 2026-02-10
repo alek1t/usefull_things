@@ -1,0 +1,44 @@
+1. ставим компоненты qemu, libvirt, libvirt-manager 
+sudo apt update
+sudo apt install qemu-kvm libvirt-daemon-system libvirt-clients virt-manager bridge-utils ovmf
+
+2. добавляем пользователя в группы libvirt, kvm
+sudo usermod -aG libvirt $USER
+sudo usermod -aG kvm $USER
+
+3. Скачать образы гостевой ос Windows и virtio-win.iso затем положить их в хранилище /var/lib/libvirt/images
+
+4. Создать в libvirt-manager новую виртуалку
+chipset - q35
+firmware - uefi (ovmf)
+cpu - host-passthrough
+TPM (Type: Emulated, Model: TIS, Version: 2.0)
+disk - disk bus virtio
+nic - virtio
+video - virtio
+
+5. В XML конфиге отдаём конкретные ядра под виртуалку
+<vcpu placement='static'>2</vcpu>
+<cputune>
+  <vcpupin vcpu='0' cpuset='1'/>
+  <vcpupin vcpu='1' cpuset='5'/>
+  <emulatorpin cpuset='0,4'/>
+</cputune>
+<cpu mode='host-passthrough' check='none'>
+  <topology sockets='1' dies='1' cores='1' threads='2'/>
+</cpu>
+
+
+6. Add Hardware - storage - cdrom device - bus:sata -->> select custom storage -->> virtio-win.iso
+
+7. Add Hardware - Controller - SCSI - VirtIO SCSI 
+
+8. VirtIO Disk 1 remove  --->> add hadware - storage - select custom storage - manage - var/lib/libvirt/images/win11.qcow2 - bus:scsi, storage format:qcow2
+
+9. при установке load driver - virtio-win   vioscsi\w11\amd64
+
+10. после установки с CD virtio-win установить virtio-win-gt-x64.exe и virtio-win-guest-tools
+
+11. установить https://github.com/winfsp/winfsp/releases и запустить сервис Virtio-FS Service через services.msc
+
+12. в настройках виртуалки add hardware - filesystem - virtiofs - source:/home/user/... target:shared_data

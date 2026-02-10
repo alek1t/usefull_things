@@ -1,0 +1,104 @@
+    1  apt remove vim-tiny vim-common
+    2  sudo apt remove vim-tiny vim-common
+    3  sudo apt install vim
+    4  free -h
+    5  sudo swapoff /swap.img
+    6  free -h
+    7  sudo fallocate -l 16G /swap.img
+    8  sudo chmod 600 /swap.img
+    9  sudo mkswap /swap.img
+   10  sudo swapon /swap.img
+   11  free -h
+   12  cd Downloads/
+   13  ll
+   14  cd Telegram\ Desktop/
+   15  ll
+   16  sudo apt install ./forticlient_vpn_7.4.3.1736_amd64.deb 
+   17  sudo apt install flatpak
+   18  sudo flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+   19  sudo apt install gnome-software-plugin-flatpak
+   20  git --version
+   21  sudo apt install git
+   22  sudo apt install speedtest
+   23  sudo curl -s https://packagecloud.io/install/repositories/ookla/speedtest-cli/script.deb.sh | sudo bash
+   24  curl -s https://packagecloud.io/install/repositories/ookla/speedtest-cli/script.deb.sh | sudo bash
+   25  sudo apt install curl
+   26  sudo curl -s https://packagecloud.io/install/repositories/ookla/speedtest-cli/script.deb.sh | sudo bash
+   27  sudo apt install speedtest-cli
+   28  speedtest-cli -s 22288
+   29  speedtest-cli -h
+   30  speedtest-cli --server 22288
+   31  speedtest-cli 
+   32  speedtest-cli --server 22288
+   33  speedtest --list
+   34  speedtest --server 35577 --single
+   35  ll
+   36  cd .local/
+   37  ll
+   38  cd share/
+   39  ll
+   40  mkdir fonts
+   41  cd fonts/
+   42  mkdir microsoft
+   43  ll
+   44  cd microsoft/
+   45  ll
+   46  cp /home/alek1t/Downloads/Telegram\ Desktop/Fonts/* ./
+   47  ll
+   48  fc-cache -h
+   49  man fc-cache 
+   50  fc-cache -fv
+   51  sudo apt update
+   52  vi /etc/apt/sources.list
+   53  vi /etc/apt/sources.list.d/ookla_speedtest-cli.list 
+   54  sudo vi /etc/apt/sources.list.d/ookla_speedtest-cli.list 
+   55  sudo apt update
+   56  sudo apt install qemu-kvm libvirt-daemon-system libvirt-clients virt-manager bridge-utils ovmf
+   57  sudo usermod -aG libvirt $USER
+   58  sudo usermod -aG kvm $USER
+   59  ll
+   60  cd Downloads/
+   61  ll
+   62  rm Microsoft\ Windows\ 11\ version\ 24H2\ build\ 26100.7623\ \(updated\ January\ 2026\)\ -\ Оригинальные\ образы\ от\ Microsoft\ MSDN\ \[Ru\]\ \[rutracker-6805327\].torrent 
+   63  cd Microsoft\ Windows\ 11\ \[10.0.26100.7623\]\,\ Version\ 24H2\ \(Updated\ January\ 2026\)\ -\ Оригинальные\ образы\ от\ Microsoft\ MSDN\ \[Ru\]/
+   64  ll
+   65  rm ru-ru_windows_11_consumer_editions_version_24h2_updated_jan_2026_arm64_dvd_b8d9400e.iso 
+   66  mv ru-ru_windows_11_consumer_editions_version_24h2_updated_jan_2026_x64_dvd_b8d9400e.iso win-11.iso
+   67  ll
+   68  mv win-11.iso /var/lib/libvirt/images/
+   69  sudo mv win-11.iso /var/lib/libvirt/images/
+   70  ll /var/lib/libvirt/images/
+   71  sudo ll /var/lib/libvirt/images/
+   72  sudo ls -lah /var/lib/libvirt/images/
+   73  cd ..
+   74  ll
+   75  mv virtio-win-0.1.285.iso /var/lib/libvirt/images/
+   76  sudo mv virtio-win-0.1.285.iso /var/lib/libvirt/images/
+   77  sudo apt update
+   78  sudo apt upgrade
+   79  sudo apt install ttf-mscorefonts-installer
+   80  sudo fc-cache -f -v
+   81  ll
+   82  ll .local/share/fonts/microsoft/
+   83  sudo fc-cache -f -v
+   84  sudo apt install fonts-liberation fonts-dejavu
+   85  fc-list | grep -i "Calibri"
+   86  df -h
+   87  cd /var/lib/libvirt/images/
+   88  ll
+   89  sudo ll
+   90  sudo su
+   91  cd /home/alek1t/vm_share/
+   92  teeeest >> test.txt
+   93  echo "teeeest" >> test.txt
+   94  ;;
+   95  ll
+   96  cat test.txt 
+   97  sudo apt install virtiofsd
+   98  sudo systemctl restart libvirtd
+   99  systemctl daemon-reload
+  100  curl -f https://zed.dev/install.sh | sh
+  101  echo 'export PATH=$HOME/.local/bin:$PATH' >> ~/.bashrc
+  102  source ~/.bashrc
+  103  zed
+  104  history
